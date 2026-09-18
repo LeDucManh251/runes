@@ -69,6 +69,14 @@ function FlipCard({ rune, position, adviceText, isRevealed, onReveal }: FlipCard
         </div>
 
       </div>
+
+      {isRevealed && (
+        <div className="resonance" aria-hidden="true">
+          <span className="resonance-ring" />
+          <span className="resonance-ring resonance-ring--delay-1" />
+          <span className="resonance-ring resonance-ring--delay-2" />
+        </div>
+      )}
     </div>
   );
 }
