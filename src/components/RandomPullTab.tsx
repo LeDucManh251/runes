@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Rune, interpolateAdvice, pickRandomRunes } from '../data/runes';
 import FlipCard from './FlipCard';
+import StarMist from './StarMist';
 
 type RuneCount = 'one' | 'two' | 'three' | 'five';
 
@@ -91,7 +92,9 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
   };
 
   return (
-    <div style={{ maxWidth: '1500px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
+    <div style={{ maxWidth: '1500px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center', position: 'relative' }}>
+      <StarMist />
+      <div style={{ position: 'relative', zIndex: 1 }}>
 
       <div style={{
         display: 'flex',
@@ -215,6 +218,7 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
             />
           );
         })}
+      </div>
       </div>
     </div>
   );
