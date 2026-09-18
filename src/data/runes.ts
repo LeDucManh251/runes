@@ -654,6 +654,26 @@ export const getRandomRune = (): Rune => {
 };
 
 /**
+ * Rút ngẫu nhiên `count` rune không trùng lặp từ `pool` (mặc định là toàn bộ bộ bài).
+ * Ném lỗi nếu `count` lớn hơn số rune có sẵn trong `pool`.
+ */
+export const pickRandomRunes = (count: number, pool: Rune[] = runes): Rune[] => {
+  if (count > pool.length) {
+    throw new Error(`Không thể rút ${count} rune không trùng lặp từ bộ bài chỉ có ${pool.length} rune.`);
+  }
+  const picked: Rune[] = [];
+  const usedIndices = new Set<number>();
+  while (picked.length < count) {
+    const randomIndex = Math.floor(Math.random() * pool.length);
+    if (!usedIndices.has(randomIndex)) {
+      usedIndices.add(randomIndex);
+      picked.push(pool[randomIndex]);
+    }
+  }
+  return picked;
+};
+
+/**
  * Ghép mẫu `rune.advice` (chứa placeholder {subject}/{name}) với ngữ cảnh
  * câu hỏi tiên đoán thực tế của người dùng. Có fallback cho rune không có
  * field advice (phòng khi thêm rune mới mà quên điền).

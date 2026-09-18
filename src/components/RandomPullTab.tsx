@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { runes, Rune, interpolateAdvice } from '../data/runes';
+import { runes, Rune, interpolateAdvice, pickRandomRunes } from '../data/runes';
 import FlipCard from './FlipCard';
 
 type RuneCount = 'one' | 'two' | 'three' | 'five';
@@ -47,16 +47,7 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
 
   const pullHorizontalRunes = () => {
     const count = getRuneCountNumber(horizontalRuneCount);
-    const newRunes: Rune[] = [];
-    const usedIndices = new Set<number>();
-    while (newRunes.length < count) {
-      const randomIndex = Math.floor(Math.random() * runes.length);
-      if (!usedIndices.has(randomIndex)) {
-        usedIndices.add(randomIndex);
-        newRunes.push(runes[randomIndex]);
-      }
-    }
-    setHorizontalPulledRunes(newRunes);
+    setHorizontalPulledRunes(pickRandomRunes(count));
     setRevealedCardIndices([]);
   };
 
