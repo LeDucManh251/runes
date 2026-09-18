@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { runes, Rune, interpolateAdvice, pickRandomRunes } from '../data/runes';
+import { Rune, interpolateAdvice, pickRandomRunes } from '../data/runes';
 import FlipCard from './FlipCard';
 
 type RuneCount = 'one' | 'two' | 'three' | 'five';
