@@ -1,9 +1,14 @@
 import { useState } from 'react';
-import { Rune, interpolateAdvice, pickRandomRunes } from '../data/runes';
+import { Rune, interpolateAdvice, pickRandomRunes, rollOrientation } from '../data/runes';
 import FlipCard from './FlipCard';
 import StarMist from './StarMist';
 
 type RuneCount = 'one' | 'two' | 'three' | 'five';
+
+interface DrawnRune {
+  rune: Rune;
+  isReversed: boolean;
+}
 
 const spreadPositions: Record<RuneCount, string[]> = {
   one: ['Thông điệp chính'],
@@ -20,15 +25,15 @@ interface RandomPullTabProps {
   isMobile: boolean;
 }
 
-/** Tab "Tiên đoán": nhập câu hỏi, rút 1/2/3/5 lá rune, lật từng lá để xem lời khuyên. */
+/** Tab "Tiên đoán": nhập câu hỏi, rút 1/2/3/5 lá rune (có thể ngược), lật từng lá để xem lời khuyên. */
 function RandomPullTab({ isMobile }: RandomPullTabProps) {
   const [horizontalRuneCount, setHorizontalRuneCount] = useState<RuneCount>('one');
-  const [horizontalPulledRunes, setHorizontalPulledRunes] = useState<Rune[]>([]);
+  const [horizontalPulledRunes, setHorizontalPulledRunes] = useState<DrawnRune[]>([]);
   const [revealedCardIndices, setRevealedCardIndices] = useState<number[]>([]);
   const [runeQuestion, setRuneQuestion] = useState('');
 
-  const getMobileOrderedRunes = (runesList: Rune[], revealedIndices: number[]) => {
-    const indexed = runesList.map((rune, index) => ({ rune, index }));
+  const getMobileOrderedRunes = (draws: DrawnRune[], revealedIndices: number[]) => {
+    const indexed = draws.map((draw, index) => ({ draw, index }));
     if (!isMobile || revealedIndices.length === 0) {
       return indexed;
     }
@@ -48,7 +53,8 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
 
   const pullHorizontalRunes = () => {
     const count = getRuneCountNumber(horizontalRuneCount);
-    setHorizontalPulledRunes(pickRandomRunes(count));
+    const drawnRunes = pickRandomRunes(count).map((rune) => ({ rune, isReversed: rollOrientation(rune) }));
+    setHorizontalPulledRunes(drawnRunes);
     setRevealedCardIndices([]);
   };
 
@@ -84,11 +90,11 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
     };
   };
 
-  const getAdviceText = (rune: Rune, index: number) => {
+  const getAdviceText = (draw: DrawnRune, index: number) => {
     const positions = spreadPositions[horizontalRuneCount];
     const position = positions[index] || `Rune ${index + 1}`;
     const { subject } = getQuestionContext();
-    return `${position}: ${interpolateAdvice(rune, subject)}`;
+    return `${position}: ${interpolateAdvice(draw.rune, subject, draw.isReversed)}`;
   };
 
   return (
@@ -204,15 +210,16 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
         gap: '0.75rem', marginTop: '0.5rem', marginBottom: '0.5rem', width: '100%',
         flexWrap: isMobile ? 'wrap' : 'nowrap', overflowX: 'auto', padding: '0.25rem'
       }}>
-        {getMobileOrderedRunes(horizontalPulledRunes, revealedCardIndices).map(({ rune, index }) => {
+        {getMobileOrderedRunes(horizontalPulledRunes, revealedCardIndices).map(({ draw, index }) => {
           const positions = spreadPositions[horizontalRuneCount];
           const position = positions[index] || `Rune ${index + 1}`;
           return (
             <FlipCard
               key={index}
-              rune={rune}
+              rune={draw.rune}
+              isReversed={draw.isReversed}
               position={position}
-              adviceText={getAdviceText(rune, index)}
+              adviceText={getAdviceText(draw, index)}
               isRevealed={revealedCardIndices.includes(index)}
               onReveal={() => toggleCardReveal(index)}
             />

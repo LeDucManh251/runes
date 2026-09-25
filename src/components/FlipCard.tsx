@@ -4,14 +4,15 @@ import RuneAnnotations from './RuneAnnotations';
 
 interface FlipCardProps {
   rune: Rune;
+  isReversed: boolean;
   position: string;
   adviceText: string;
   isRevealed: boolean;
   onReveal: () => void;
 }
 
-/** Một lá bài rune có thể lật (3D flip) — mặt trước ẩn danh, mặt sau hiện ký hiệu + lời khuyên. */
-function FlipCard({ rune, position, adviceText, isRevealed, onReveal }: FlipCardProps) {
+/** Một lá bài rune có thể lật (3D flip) — mặt trước ẩn danh, mặt sau hiện ký hiệu (xoay nếu ngược) + lời khuyên. */
+function FlipCard({ rune, isReversed, position, adviceText, isRevealed, onReveal }: FlipCardProps) {
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -47,10 +48,20 @@ function FlipCard({ rune, position, adviceText, isRevealed, onReveal }: FlipCard
           }}>
             {position}
           </div>
-          <span className="rune-symbol" style={{ fontSize: '2.8rem', marginBottom: '0.2rem', textShadow: '0 0 15px rgba(136,192,208,0.6)' }}>{rune.symbol}</span>
-          <h3 className="rune-name" style={{ fontSize: '1.2rem', marginBottom: '0.15rem', fontFamily: 'Cormorant Garamond, serif', letterSpacing: '0.04em' }}>{rune.name}</h3>
+          <span
+            className="rune-symbol"
+            style={{
+              fontSize: '2.8rem', marginBottom: '0.2rem', textShadow: '0 0 15px rgba(136,192,208,0.6)',
+              display: 'inline-block', transform: isReversed ? 'rotate(180deg)' : 'none'
+            }}
+          >
+            {rune.symbol}
+          </span>
+          <h3 className="rune-name" style={{ fontSize: '1.2rem', marginBottom: '0.15rem', fontFamily: 'Cormorant Garamond, serif', letterSpacing: '0.04em' }}>
+            {rune.name}{isReversed ? ' (Ngược)' : ''}
+          </h3>
           <p className="rune-meaning" style={{ fontSize: '0.9rem', marginBottom: '0.4rem', color: '#81a1c1' }}>
-            <strong>{rune.meaning}</strong>
+            <strong>{isReversed && rune.reversedMeaning ? rune.reversedMeaning : rune.meaning}</strong>
           </p>
 
           <RuneAnnotations rune={rune} />
