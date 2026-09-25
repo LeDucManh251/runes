@@ -19,6 +19,11 @@ export interface Rune {
    */
   advice: string;
   annotations?: Annotation[];
+  /** Ý nghĩa ngắn khi rune rút được ở chiều ngược (merkstave). Rune không có field này
+   * là rune đối xứng — không bao giờ ra ngược. */
+  reversedMeaning?: string;
+  /** Mẫu lời khuyên khi ngược, cùng placeholder {subject}/{name} như `advice`. */
+  reversedAdvice?: string;
 }
 
 export const runes: Rune[] = [
@@ -671,6 +676,15 @@ export const pickRandomRunes = (count: number, pool: Rune[] = runes): Rune[] => 
     }
   }
   return picked;
+};
+
+/** Một rune có ý nghĩa ngược riêng hay không (rune đối xứng thì không). */
+export const isReversible = (rune: Rune): boolean => Boolean(rune.reversedMeaning);
+
+/** Random chiều rút cho 1 rune — rune đối xứng luôn ra xuôi, rune còn lại 50/50. */
+export const rollOrientation = (rune: Rune): boolean => {
+  if (!isReversible(rune)) return false;
+  return Math.random() < 0.5;
 };
 
 /**
