@@ -42,6 +42,11 @@ function DictionaryTab() {
             <p className="rune-meaning" style={{ margin: '0 0 0.75rem 0', fontSize: '1.05rem' }}>
               <strong>{rune.meaning}</strong>
             </p>
+            {rune.reversedMeaning && (
+              <p style={{ fontSize: '0.85rem', color: '#7a92a8', fontStyle: 'italic', margin: '0 0 0.75rem 0' }}>
+                Khi ngược: {rune.reversedMeaning}
+              </p>
+            )}
             <RuneAnnotations rune={rune} />
             <p style={{ fontSize: '0.92rem', lineHeight: '1.6', textAlign: 'justify', margin: '0', fontFamily: 'Inter, sans-serif' }}>{rune.description}</p>
           </div>
