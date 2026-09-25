@@ -90,3 +90,42 @@ describe('rollOrientation', () => {
     Math.random = originalRandom;
   });
 });
+
+describe('interpolateAdvice với isReversed', () => {
+  const reversibleFixtureWithAdvice: Rune = {
+    id: 'test-reversible-advice',
+    symbol: 'X',
+    name: 'Test',
+    meaning: 'Test meaning',
+    description: 'Test description',
+    interpretation: 'Test interpretation',
+    advice: 'lời khuyên xuôi cho {subject}',
+    reversedMeaning: 'Test reversed meaning',
+    reversedAdvice: 'lời khuyên ngược cho {subject} liên quan {name}'
+  };
+
+  const symmetricFixtureWithAdvice: Rune = {
+    id: 'test-symmetric-advice',
+    symbol: 'Y',
+    name: 'Symmetric',
+    meaning: 'Test meaning',
+    description: 'Test description',
+    interpretation: 'Test interpretation',
+    advice: 'lời khuyên xuôi cho {subject}'
+  };
+
+  it('dùng reversedAdvice khi isReversed=true và rune có reversedAdvice', () => {
+    const result = interpolateAdvice(reversibleFixtureWithAdvice, 'công việc', true);
+    expect(result).toBe('lời khuyên ngược cho công việc liên quan Test');
+  });
+
+  it('dùng advice xuôi khi isReversed=false', () => {
+    const result = interpolateAdvice(reversibleFixtureWithAdvice, 'công việc', false);
+    expect(result).toBe('lời khuyên xuôi cho công việc');
+  });
+
+  it('fallback về advice xuôi khi isReversed=true nhưng rune không có reversedAdvice', () => {
+    const result = interpolateAdvice(symmetricFixtureWithAdvice, 'công việc', true);
+    expect(result).toBe('lời khuyên xuôi cho công việc');
+  });
+});

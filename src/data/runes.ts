@@ -692,8 +692,9 @@ export const rollOrientation = (rune: Rune): boolean => {
  * câu hỏi tiên đoán thực tế của người dùng. Có fallback cho rune không có
  * field advice (phòng khi thêm rune mới mà quên điền).
  */
-export const interpolateAdvice = (rune: Rune, subject: string): string => {
-  const template = rune.advice
+export const interpolateAdvice = (rune: Rune, subject: string, isReversed: boolean = false): string => {
+  const template = (isReversed ? rune.reversedAdvice : undefined)
+    ?? rune.advice
     ?? `hãy liên hệ ý nghĩa của {name} với {subject}. Hãy để rune gợi ra hành động trung thực kế tiếp, thay vì một lời tiên đoán cố định.`;
   return template.replace(/\{subject\}/g, subject).replace(/\{name\}/g, rune.name);
 };
