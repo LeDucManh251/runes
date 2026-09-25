@@ -129,3 +129,21 @@ describe('interpolateAdvice với isReversed', () => {
     expect(result).toBe('lời khuyên xuôi cho công việc');
   });
 });
+
+describe('dữ liệu rune ngược', () => {
+  const symmetricIds = ['gebo', 'hagalaz', 'isa', 'jera', 'eihwaz', 'ingwaz', 'dagaz', 'othala'];
+
+  it('đúng 8 rune đối xứng không có reversedMeaning', () => {
+    const withoutReversed = runes.filter((rune) => !rune.reversedMeaning).map((rune) => rune.id);
+    expect(withoutReversed.sort()).toEqual([...symmetricIds].sort());
+  });
+
+  it('16 rune còn lại đều có cả reversedMeaning và reversedAdvice', () => {
+    const reversibleRunes = runes.filter((rune) => !symmetricIds.includes(rune.id));
+    expect(reversibleRunes).toHaveLength(16);
+    reversibleRunes.forEach((rune) => {
+      expect(rune.reversedMeaning).toBeTruthy();
+      expect(rune.reversedAdvice).toBeTruthy();
+    });
+  });
+});

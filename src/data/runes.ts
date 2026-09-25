@@ -35,6 +35,8 @@ export const runes: Rune[] = [
     description: "Đại diện cho của cải vật chất, sự sung túc và quyền năng kiến tạo. Ký tự này biểu trưng cho năng lượng hiện thực hóa và dòng chảy của các nguồn lực trong cuộc sống của bạn.",
     interpretation: "Tài lộc và năng lượng dồi dào đang luân chuyển, mang đến cơ hội biến ước mơ thành hiện thực.",
     advice: "hãy nhìn vào điều đang có giá trị trong {subject}. Rune này hướng bạn đến nguồn lực, sự trao đổi thực tế và thứ có thể nuôi lớn quyết định kế tiếp.",
+    reversedMeaning: "Mất mát / Bám giữ quá chặt",
+    reversedAdvice: "hãy xem lại nơi bạn đang bám giữ quá chặt. {subject} có thể cần bạn buông bớt kiểm soát tài chính hoặc vật chất thay vì tích trữ thêm.",
     annotations: [
       {
         word: "Cattle",
@@ -61,6 +63,8 @@ export const runes: Rune[] = [
     description: "Hiện thân của sức mạnh thô mộc, năng lượng nguyên sơ và quyền năng chuyển hóa. Ký tự này đại diện cho một mãnh lực hoang dã, bất kham ẩn sâu bên trong cùng lòng can đảm đối diện với mọi thử thách.",
     interpretation: "Đã đến lúc khai phá nội lực mãnh liệt và lòng dũng cảm để vượt qua ranh giới, đón nhận sự thay đổi lớn.",
     advice: "hãy phản hồi từ sự vững vàng, không phải từ áp lực. {name} cho thấy bạn có nhiều sức bền hơn vẻ ngoài của tình huống.",
+    reversedMeaning: "Suy nhược / Mất kiểm soát",
+    reversedAdvice: "đừng ép cơ thể hoặc ý chí vượt quá giới hạn. {name} ngược nhắc bạn nghỉ ngơi trước khi kiệt sức ảnh hưởng đến quyết định.",
     annotations: [
       {
         word: "Aurochs",
@@ -87,6 +91,8 @@ export const runes: Rune[] = [
     description: "Tượng trưng cho sự che chở, phòng vệ và năng lực vượt qua những rào cản. Ký tự này đại diện cho tinh thần của một chiến binh và khả năng gìn giữ, bảo vệ những gì thực sự quan trọng đối với bạn.",
     interpretation: "Hãy thiết lập ranh giới phòng thủ vững chắc để bảo toàn sức mạnh và vượt qua chướng ngại vật trước mắt.",
     advice: "hãy đặt ranh giới trước khi hành động. Lời khuyên là bảo vệ điều quan trọng và đừng phản ứng chỉ vì sợ hãi.",
+    reversedMeaning: "Hung hăng thái quá / Mất cảnh giác",
+    reversedAdvice: "hãy xem lại ranh giới bạn đang dựng lên — có thể đang quá hung hăng hoặc quá lỏng lẻo. Đừng phản ứng khi chưa thật sự cần phòng thủ.",
     annotations: [
       {
         word: "Thorn",
@@ -113,6 +119,8 @@ export const runes: Rune[] = [
     description: "Đại diện cho trí tuệ thiêng liêng, khả năng truyền thông và sức mạnh của ngôn từ. Ký tự này biểu trưng cho nguồn cảm hứng, tri thức rộng lớn và sợi dây kết nối với tầng nhận thức cao hơn.",
     interpretation: "Hãy chú ý đến những thông điệp xung quanh, lắng nghe tiếng gọi của trí tuệ và trực giác để tìm ra hướng đi sáng suốt.",
     advice: "hãy làm rõ lời nói, tín hiệu hoặc lời khuyên quanh {subject}. Một cuộc trò chuyện thẳng thắn có thể mở ra bước tiếp theo.",
+    reversedMeaning: "Hiểu lầm / Lời nói sai lệch",
+    reversedAdvice: "hãy cẩn trọng với lời nói xung quanh {subject} — có thể đang có hiểu lầm hoặc thông tin chưa chính xác. Đừng vội tin lời khuyên đầu tiên bạn nghe được.",
     annotations: [
       {
         word: "God",
@@ -139,6 +147,8 @@ export const runes: Rune[] = [
     description: "Hiện thân của chuyến hành trình trong đời sống, bao gồm cả những chuyển động thể xác lẫn nấc thang tinh thần. Ký tự này nói về sự tiến triển, nhịp điệu hướng về phía trước và con đường phát triển cá nhân của bạn.",
     interpretation: "Cuộc sống của bạn đang chuyển động đúng quỹ đạo. Hãy kiên định tiến bước trên hành trình tự hoàn thiện bản thân.",
     advice: "hãy xem đây là một hành trình, không chỉ là một quyết định đơn lẻ. Một bước nhỏ được kiểm chứng cẩn thận có giá trị hơn câu trả lời hoàn hảo.",
+    reversedMeaning: "Trì trệ / Lạc lối",
+    reversedAdvice: "hãy chấp nhận rằng hành trình đang chững lại. Đừng ép bước tiếp khi con đường chưa thật sự rõ ràng.",
     annotations: [
       {
         word: "Journey",
@@ -165,6 +175,8 @@ export const runes: Rune[] = [
     description: "Tượng trưng cho ánh sáng của tri thức, tư duy sáng tạo và nguồn cảm hứng bất tận. Ký tự này đại diện cho ngọn lửa chuyển hóa và quyền năng soi rọi, làm sáng tỏ con đường phía trước.",
     interpretation: "Ánh sáng từ sự hiểu biết và cảm hứng sáng tạo sẽ giúp bạn xua tan bóng tối hoài nghi, nhìn rõ lối đi.",
     advice: "hãy đưa phần mơ hồ ra ánh sáng. Thu thập dữ kiện, gọi tên mô thức, rồi lựa chọn với nhiều sáng tạo hơn.",
+    reversedMeaning: "Cạn kiệt cảm hứng / Mù mờ",
+    reversedAdvice: "hãy thắp lại ngọn lửa cảm hứng đã tắt trước khi cố tìm câu trả lời. {name} ngược cho thấy bạn cần nghỉ để nhìn rõ lại vấn đề.",
     annotations: [
       {
         word: "Torch",
@@ -217,6 +229,8 @@ export const runes: Rune[] = [
     description: "Hiện thân của niềm vui thuần khiết, sự hòa hợp và khoảnh khắc mọi ước nguyện được viên mãn. Ký tự này đại diện cho trạng thái hạnh phúc tuyệt đối khi ý chí của bạn được đồng điệu với định mệnh.",
     interpretation: "Giai đoạn của sự mãn nguyện và bình yên đang đến. Bạn sẽ tìm thấy sự hòa hợp trọn vẹn giữa mong muốn cá nhân và số phận.",
     advice: "hãy tìm lựa chọn giúp khôi phục sự nhẹ nhõm mà vẫn không né tránh thực tế. Niềm vui ở đây là một tín hiệu đáng lắng nghe.",
+    reversedMeaning: "Bất hòa / Thất vọng",
+    reversedAdvice: "đừng gượng ép niềm vui khi lòng chưa thật sự yên. Hãy thành thật nhìn nhận điều đang gây bất hòa trong {subject}.",
     annotations: [
       {
         word: "Joy",
@@ -269,6 +283,8 @@ export const runes: Rune[] = [
     description: "Đại diện cho những nhu cầu thực tế, sự bắt buộc của hoàn cảnh và các giới hạn gánh nặng giúp rèn giũa nhân cách. Ký tự này biểu trưng cho những bài học xương máu có được thông qua nghịch cảnh và sự thiếu thốn.",
     interpretation: "Áp lực và giới hạn hiện tại chính là bài học kiên nhẫn, giúp bạn nhận ra giá trị thực sự và gia tăng sức chịu đựng.",
     advice: "hãy gọi tên giới hạn thật sự. Rune này hỏi điều gì là cần thiết, điều gì là tùy chọn, và điều gì bạn có thể ngừng mang theo.",
+    reversedMeaning: "Tự trói buộc / Bất lực",
+    reversedAdvice: "hãy xem lại giới hạn bạn tự đặt ra cho chính mình — có thể đang trói buộc bạn nhiều hơn cần thiết. Đừng nhầm lẫn sự thiếu thốn với sự bất lực.",
     annotations: [
       {
         word: "Need",
@@ -373,6 +389,8 @@ export const runes: Rune[] = [
     description: "Hiện thân của những bí ẩn, vòng quay số phận và những điều chưa được hé lộ. Ký tự này đại diện cho các khía cạnh ẩn giấu của đời sống và vai trò của sự ngẫu nhiên, may rủi đối với định mệnh.",
     interpretation: "Hãy sẵn sàng đón nhận những điều bất ngờ nằm ngoài tầm kiểm soát của lý trí. Số phận luôn có những lối rẽ bí ẩn đầy thú vị.",
     advice: "hãy chừa chỗ cho điều chưa biết. Không phải mọi yếu tố đều đã hiện ra, nên bước tiếp theo nên đủ linh hoạt.",
+    reversedMeaning: "Bế tắc / Bí mật chưa lộ diện",
+    reversedAdvice: "có điều gì đó đang bị giấu kín hoặc chưa sẵn sàng lộ diện. Đừng cố ép buộc một câu trả lời khi vận may chưa đứng về phía bạn.",
     annotations: [
       {
         word: "Dice Cup",
@@ -399,6 +417,8 @@ export const runes: Rune[] = [
     description: "Tượng trưng cho sự che chở, mối kết nối thiêng liêng với đấng tối cao và quyền năng của sự phòng hộ về mặt tinh thần. Ký tự này chính là cây cầu nối liền giữa mặt đất và bầu trời.",
     interpretation: "Bạn đang được bảo vệ an toàn trên hành trình của mình. Hãy tin tưởng vào sự dẫn dắt tâm linh và bản năng tự vệ bên trong.",
     advice: "hãy đặt ranh giới trước khi hành động. Lời khuyên là bảo vệ điều quan trọng và đừng phản ứng chỉ vì sợ hãi.",
+    reversedMeaning: "Mất cảnh giác / Tổn thương",
+    reversedAdvice: "hãy cẩn trọng — lớp phòng vệ quanh {subject} có thể đang lỏng lẻo hơn bạn nghĩ. Đừng hạ thấp cảnh giác quá sớm.",
     annotations: [
       {
         word: "Elk",
@@ -425,6 +445,8 @@ export const runes: Rune[] = [
     description: "Đại diện cho ánh mặt trời rực rỡ, thành tựu hiển hách và nguồn năng lượng ban phát sự sống để nuôi dưỡng vạn vật. Ký tự này biểu trưng cho chiến thắng, quyền lực và sức mạnh của ý chí.",
     interpretation: "Ánh sáng rực rỡ của thành công đang chiếu rọi con đường bạn đi. Hãy giải phóng nguồn sinh lực và ý chí mạnh mẽ để đạt tới vinh quang.",
     advice: "hãy đi về phía điều sáng rõ, tiếp thêm năng lượng và trung thực. Rune này ủng hộ sự tự tin dựa trên sự thật có thể nhìn thấy.",
+    reversedMeaning: "Ảo tưởng / Kiêu ngạo",
+    reversedAdvice: "hãy nhìn lại xem thành công đang thấy có thực sự vững chắc hay chỉ là ảo tưởng nhất thời. Đừng để sự tự tin biến thành kiêu ngạo.",
     annotations: [
       {
         word: "Sun",
@@ -451,6 +473,8 @@ export const runes: Rune[] = [
     description: "Hiện thân của cán cân công lý, danh dự cao quý và quy luật thép của một chiến binh. Ký tự này đại diện cho sự hy sinh vị tha vì đại cuộc, cùng việc kiên định theo đuổi sự thật và lẽ phải.",
     interpretation: "Hãy hành động với tinh thần trách nhiệm, danh dự và lòng trung thực. Chiến thắng và công lý sẽ đứng về phía người chính trực.",
     advice: "hãy chọn con đường bạn có thể đứng vững sau đó. Công bằng, chính trực và hy sinh cho điều đúng là trọng tâm ở đây.",
+    reversedMeaning: "Bất công / Niềm tin đặt sai chỗ",
+    reversedAdvice: "hãy xem lại liệu bạn có đang hy sinh quá nhiều cho một nguyên tắc không còn công bằng. {name} ngược cảnh báo về niềm tin bị đặt sai chỗ.",
     annotations: [
       {
         word: "Tyr",
@@ -477,6 +501,8 @@ export const runes: Rune[] = [
     description: "Tượng trưng cho sự phát triển, những khởi đầu mới mẻ và nguồn năng lượng nuôi dưỡng, che chở từ đất mẹ. Ký tự này đại diện cho sự màu mỡ, hồi sinh và sức mạnh nguyên bản của sự kiến tạo.",
     interpretation: "Một hạt giống mới đang nảy mầm trong cuộc sống của bạn. Hãy nuôi dưỡng nó bằng tình yêu thương và sự kiên nhẫn để đón nhận sự sinh trưởng.",
     advice: "hãy tạo điều kiện cho cái mới phát triển. Sự dịu dàng, đều đặn và kiên nhẫn có thể hiệu quả hơn việc thúc ép.",
+    reversedMeaning: "Trì hoãn / Thiếu chăm sóc",
+    reversedAdvice: "đừng thúc ép điều mới nảy mầm khi nó chưa đủ chăm sóc. Hãy quay lại chú ý những gì đang bị bỏ bê trong {subject}.",
     annotations: [
       {
         word: "Birch",
@@ -503,6 +529,8 @@ export const runes: Rune[] = [
     description: "Đại diện cho tình bạn đồng hành, niềm tin tuyệt đối và năng lực dịch chuyển mạnh mẽ. Ký tự này biểu trưng cho sợi dây liên kết bền chặt giữa kỵ sĩ và chiến mã, cũng như hành trình của sự hợp tác đôi bên.",
     interpretation: "Sự tiến bộ và thành công sẽ đến từ tinh thần cộng tác, sự tin tưởng lẫn nhau giữa những người bạn đồng hành chung chí hướng.",
     advice: "hãy xem đây là một hành trình, không chỉ là một quyết định đơn lẻ. Một bước nhỏ được kiểm chứng cẩn thận có giá trị hơn câu trả lời hoàn hảo.",
+    reversedMeaning: "Rạn nứt / Mất lòng tin",
+    reversedAdvice: "hãy xem lại sự tin tưởng trong mối đồng hành — có thể đang rạn nứt mà bạn chưa nhận ra. Đừng tiến tiếp khi chưa hàn gắn.",
     annotations: [
       {
         word: "Horse",
@@ -529,6 +557,8 @@ export const runes: Rune[] = [
     description: "Hiện thân của nhân tính, các mối quan hệ xã hội và sức mạnh của trí tuệ con người. Ký tự này đại diện cho bản chất kết nối cộng đồng và tầm quan trọng của việc xây dựng các mối quan hệ.",
     interpretation: "Hãy nhìn nhận lại vị trí của bản thân trong tập thể. Trí tuệ lớn nằm ở sự thấu hiểu chính mình và kết nối sâu sắc với đồng loại.",
     advice: "hãy tính đến yếu tố con người. Câu hỏi quan trọng là điều này ảnh hưởng thế nào đến niềm tin, cộng đồng và cảm nhận của bạn về chính mình.",
+    reversedMeaning: "Cô lập / Xung đột nội tâm",
+    reversedAdvice: "hãy chú ý cảm giác cô lập hoặc xung đột nội tâm đang diễn ra. {name} ngược nhắc bạn nhìn lại vị trí của mình trong tập thể trước khi hành động.",
     annotations: [
       {
         word: "Human",
@@ -555,6 +585,8 @@ export const runes: Rune[] = [
     description: "Tượng trưng cho nước, cảm xúc sâu thẳm và sức mạnh vô hạn của trực giác. Ký tự này đại diện cho vùng đất của tiềm thức, thế giới nội tâm và khả năng linh hoạt thích ứng với mọi sự thay đổi.",
     interpretation: "Hãy để bản thân trôi theo dòng chảy tự nhiên, lắng nghe tiếng nói của trực giác và cảm xúc để tìm ra câu trả lời thay vì dùng lý trí khiên cưỡng.",
     advice: "hãy lắng nghe dòng cảm xúc bên dưới. Khả năng thích nghi và trực giác là một phần của câu trả lời, không phải thứ gây nhiễu.",
+    reversedMeaning: "Hỗn loạn cảm xúc / Trốn tránh",
+    reversedAdvice: "đừng để cảm xúc hỗn loạn cuốn bạn đi mà không kiểm soát. Hãy dừng lại trước khi trực giác trở thành sự trốn tránh thực tế trong {subject}.",
     annotations: [
       {
         word: "Water",
