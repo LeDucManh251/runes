@@ -89,3 +89,24 @@ describe('transliterate — tiếng Việt theo âm', () => {
     expect(transliterate('Nghĩa', 'vi')[0]).toEqual({ kind: 'rune', runeId: 'ingwaz', source: 'ngh' });
   });
 });
+
+describe('transliterate — tiếng Anh theo âm', () => {
+  it.each([
+    ['Thor', 'ᚦᛟᚱ'],
+    ['Anna', 'ᚨᚾᚨ'],
+    ['Grace', 'ᚷᚱᚨᛋᛖ'],
+    ['Yasmin', 'ᛃᚨᛋᛗᛁᚾ'],
+    ['Lily', 'ᛚᛁᛚᛁ'],
+    ['Max', 'ᛗᚨᚲᛋ']
+  ])('%s → %s', (input, expected) => {
+    expect(write(input, 'en')).toBe(expected);
+  });
+
+  it('gộp phụ âm đôi và nối source', () => {
+    expect(transliterate('Anna', 'en')).toEqual([
+      { kind: 'rune', runeId: 'ansuz', source: 'a' },
+      { kind: 'rune', runeId: 'naudhiz', source: 'nn' },
+      { kind: 'rune', runeId: 'ansuz', source: 'a' }
+    ]);
+  });
+});

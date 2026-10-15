@@ -66,9 +66,31 @@ const VI_RULES: Rule[] = [
   { match: 'y', runeIds: ['isa'] }
 ];
 
+const EN_VOWELS = 'aeiou';
+
+const EN_RULES: Rule[] = [
+  { match: 'th', runeIds: ['thurisaz'] },
+  { match: 'ng', runeIds: ['ingwaz'] },
+  { match: 'ph', runeIds: ['fehu'] },
+  { match: 'sh', runeIds: ['sowilo'] },
+  { match: 'ch', runeIds: ['kenaz'] },
+  { match: 'ck', runeIds: ['kenaz'] },
+  { match: 'qu', runeIds: ['kenaz', 'wunjo'] },
+  { match: 'wh', runeIds: ['wunjo'] },
+  { match: 'ee', runeIds: ['isa'] },
+  { match: 'oo', runeIds: ['uruz'] },
+  { match: 'c', runeIds: ['sowilo'], followedBy: 'eiy' },
+  { match: 'c', runeIds: ['kenaz'] },
+  { match: 'j', runeIds: ['jera'] },
+  { match: 'v', runeIds: ['fehu'] },
+  { match: 'x', runeIds: ['kenaz', 'sowilo'] },
+  { match: 'y', runeIds: ['jera'], atStart: true, followedBy: EN_VOWELS },
+  { match: 'y', runeIds: ['isa'] }
+];
+
 const RULES_BY_MODE: Record<WritingMode, Rule[]> = {
   vi: byLengthDesc([...VI_RULES, ...LETTER_RULES]),
-  en: byLengthDesc(LETTER_RULES),
+  en: byLengthDesc([...EN_RULES, ...LETTER_RULES]),
   letters: LETTER_RULES
 };
 
