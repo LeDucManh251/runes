@@ -18,5 +18,6 @@ describe('App', () => {
     // của RandomPullTab có cùng tên hiển thị/accessible name.
     const nav = screen.getByRole('navigation');
     expect(within(nav).getByRole('button', { name: 'Tiên đoán' })).toHaveClass('active');
+    expect(within(nav).getByRole('button', { name: 'Viết tên' })).toBeInTheDocument();
   });
 });

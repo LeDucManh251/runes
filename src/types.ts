@@ -1,1 +1,1 @@
-export type TabId = 'dictionary' | 'bindrunes' | 'wyrd' | 'randompull' | 'history';
+export type TabId = 'dictionary' | 'namewriter' | 'bindrunes' | 'wyrd' | 'randompull' | 'history';

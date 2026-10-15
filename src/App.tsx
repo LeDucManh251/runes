@@ -3,6 +3,7 @@ import Nav from './components/Nav';
 import ImageLightbox from './components/ImageLightbox';
 import RandomPullTab from './components/RandomPullTab';
 import DictionaryTab from './components/tabs/DictionaryTab';
+import NameWriterTab from './components/tabs/NameWriterTab';
 import BindrunesTab from './components/tabs/BindrunesTab';
 import WyrdTab from './components/tabs/WyrdTab';
 import HistoryTab from './components/tabs/HistoryTab';
@@ -65,6 +66,7 @@ function App() {
         <div key={activeTab} className="tab-content weave-in">
           {activeTab === 'dictionary' && <DictionaryTab />}
           {activeTab === 'randompull' && <RandomPullTab isMobile={isMobile} />}
+          {activeTab === 'namewriter' && <NameWriterTab />}
           {activeTab === 'bindrunes' && <BindrunesTab onImageClick={setEnlargedImage} />}
           {activeTab === 'wyrd' && <WyrdTab onImageClick={setEnlargedImage} />}
           {activeTab === 'history' && <HistoryTab />}

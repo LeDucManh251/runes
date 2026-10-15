@@ -7,6 +7,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: 'randompull', label: 'Tiên đoán' },
+  { id: 'namewriter', label: 'Viết tên' },
   { id: 'dictionary', label: 'Từ điển Rune' },
   { id: 'bindrunes', label: 'Bindrunes' },
   { id: 'wyrd', label: 'Mạng lưới định mệnh (Wyrd)' },
