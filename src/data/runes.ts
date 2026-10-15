@@ -690,6 +690,9 @@ export const getRandomRune = (): Rune => {
   return runes[randomIndex];
 };
 
+/** Tìm rune theo id (vd "fehu"); trả undefined nếu không có. */
+export const getRuneById = (id: string): Rune | undefined => runes.find((rune) => rune.id === id);
+
 /**
  * Rút ngẫu nhiên `count` rune không trùng lặp từ `pool` (mặc định là toàn bộ bộ bài).
  * Ném lỗi nếu `count` lớn hơn số rune có sẵn trong `pool`.

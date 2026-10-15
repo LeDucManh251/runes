@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Rune, runes, interpolateAdvice, pickRandomRunes, isReversible, rollOrientation } from './runes';
+import { Rune, runes, interpolateAdvice, pickRandomRunes, isReversible, rollOrientation, getRuneById } from './runes';
 
 describe('pickRandomRunes', () => {
   it('trả về đúng số lượng rune và không trùng lặp', () => {
@@ -145,5 +145,15 @@ describe('dữ liệu rune ngược', () => {
       expect(rune.reversedMeaning).toBeTruthy();
       expect(rune.reversedAdvice).toBeTruthy();
     });
+  });
+});
+
+describe('getRuneById', () => {
+  it('trả về rune có id tương ứng', () => {
+    expect(getRuneById('ingwaz')?.symbol).toBe('ᛜ');
+  });
+
+  it('trả về undefined khi id không tồn tại', () => {
+    expect(getRuneById('khong-co')).toBeUndefined();
   });
 });
