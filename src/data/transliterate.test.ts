@@ -64,3 +64,28 @@ describe('transliterate — toàn vẹn dữ liệu', () => {
     });
   });
 });
+
+describe('transliterate — tiếng Việt theo âm', () => {
+  it.each([
+    ['Nguyễn', 'ᛜᚢᛁᛖᚾ'],
+    ['Minh', 'ᛗᛁᛜ'],
+    ['Anh', 'ᚨᛁᛜ'],
+    ['Thảo', 'ᛏᚺᚨᛟ'],
+    ['Giang', 'ᛃᚨᛜ'],
+    ['Quỳnh', 'ᚲᚹᛁᛜ'],
+    ['Đức', 'ᛞᚢᚲ'],
+    ['Chi', 'ᛏᛃᛁ'],
+    ['Nhung', 'ᚾᛃᚢᛜ'],
+    ['Dũng', 'ᛉᚢᛜ'],
+    ['Xuân', 'ᛋᚢᚨᚾ'],
+    ['Bích', 'ᛒᛁᚲ'],
+    ['gìn', 'ᛃᛁᚾ'],
+    ['Nguyễn Minh Anh', 'ᛜᚢᛁᛖᚾ ᛫ ᛗᛁᛜ ᛫ ᚨᛁᛜ']
+  ])('%s → %s', (input, expected) => {
+    expect(write(input, 'vi')).toBe(expected);
+  });
+
+  it('source giữ nguyên cụm chữ gốc', () => {
+    expect(transliterate('Nghĩa', 'vi')[0]).toEqual({ kind: 'rune', runeId: 'ingwaz', source: 'ngh' });
+  });
+});

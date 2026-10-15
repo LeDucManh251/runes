@@ -37,8 +37,37 @@ const LETTER_RULES: Rule[] = Object.entries(LETTER_MAP).map(([match, runeIds]) =
 const byLengthDesc = (rules: Rule[]): Rule[] =>
   [...rules].sort((a, b) => Array.from(b.match).length - Array.from(a.match).length);
 
+const VI_VOWELS = 'aăâeêioôơuưy';
+
+const VI_RULES: Rule[] = [
+  { match: 'ngh', runeIds: ['ingwaz'] },
+  { match: 'ng', runeIds: ['ingwaz'] },
+  { match: 'nh', runeIds: ['isa', 'ingwaz'], atEnd: true },
+  { match: 'nh', runeIds: ['naudhiz', 'jera'] },
+  { match: 'ch', runeIds: ['isa', 'kenaz'], atEnd: true },
+  { match: 'ch', runeIds: ['tiwaz', 'jera'] },
+  { match: 'tr', runeIds: ['tiwaz', 'raidho'] },
+  { match: 'th', runeIds: ['tiwaz', 'hagalaz'] },
+  { match: 'ph', runeIds: ['fehu'] },
+  { match: 'kh', runeIds: ['kenaz', 'hagalaz'] },
+  { match: 'gh', runeIds: ['gebo'] },
+  { match: 'gi', runeIds: ['jera'], followedBy: VI_VOWELS },
+  { match: 'gi', runeIds: ['jera', 'isa'] },
+  { match: 'qu', runeIds: ['kenaz', 'wunjo'] },
+  { match: 'd', runeIds: ['algiz'] },
+  { match: 'đ', runeIds: ['dagaz'] },
+  { match: 'x', runeIds: ['sowilo'] },
+  { match: 'ă', runeIds: ['ansuz'] },
+  { match: 'â', runeIds: ['ansuz'] },
+  { match: 'ê', runeIds: ['ehwaz'] },
+  { match: 'ô', runeIds: ['othala'] },
+  { match: 'ơ', runeIds: ['othala'] },
+  { match: 'ư', runeIds: ['uruz'] },
+  { match: 'y', runeIds: ['isa'] }
+];
+
 const RULES_BY_MODE: Record<WritingMode, Rule[]> = {
-  vi: byLengthDesc(LETTER_RULES),
+  vi: byLengthDesc([...VI_RULES, ...LETTER_RULES]),
   en: byLengthDesc(LETTER_RULES),
   letters: LETTER_RULES
 };
