@@ -621,3 +621,200 @@ body {
     opacity: 0;
   }
 }
+
+/* ===== Viết tên bằng Rune ===== */
+.name-writer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.name-writer.rune-card:hover {
+  transform: none;
+}
+
+.name-writer-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.name-writer-intro {
+  color: #cbd5e0;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.name-writer-input {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(145deg, #1a1d26, #0e1117);
+  border: 1px solid rgba(99, 179, 237, 0.3);
+  border-radius: 8px;
+  color: #e8f4fd;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.name-writer-input:focus {
+  border-color: #63b3ed;
+}
+
+.name-writer-modes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0.4rem;
+}
+
+.name-writer-mode {
+  background: linear-gradient(145deg, #1a1d24, #0e1117);
+  color: #e8f4fd;
+  border: 1px solid rgba(99, 179, 237, 0.2);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.name-writer-mode.active {
+  background: linear-gradient(145deg, #2c3e50, #1a252f);
+  border-color: #63b3ed;
+}
+
+.name-writer-hint,
+.name-writer-empty {
+  color: #8fa5b8;
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+.name-writer-output {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.15rem;
+  margin: 1.75rem 0 1rem;
+  min-height: 4rem;
+}
+
+.name-writer-rune {
+  font-family: 'Noto Sans Runic', 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: #e8f4fd;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.2rem 0.35rem;
+  cursor: pointer;
+  text-shadow: 0 0 10px rgba(136, 192, 208, 0.6);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.name-writer-rune:hover,
+.name-writer-rune.active {
+  border-color: rgba(99, 179, 237, 0.5);
+  background: rgba(99, 179, 237, 0.08);
+}
+
+.name-writer-rune:focus-visible {
+  outline: 2px solid #63b3ed;
+  outline-offset: 2px;
+}
+
+.name-writer-separator {
+  font-family: 'Noto Sans Runic', serif;
+  font-size: 2rem;
+  color: #63b3ed;
+  opacity: 0.7;
+  margin: 0 0.4rem;
+}
+
+.name-writer-detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(99, 179, 237, 0.25);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #181c24, #0a0d12);
+}
+
+.name-writer-detail-symbol {
+  font-family: 'Noto Sans Runic', serif;
+  font-size: 2.5rem;
+  color: #e8f4fd;
+  text-shadow: 0 0 10px rgba(136, 192, 208, 0.6);
+}
+
+.name-writer-detail h3 {
+  margin: 0 0 0.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.name-writer-detail p {
+  margin: 0;
+  color: #b8d4e6;
+  font-size: 0.95rem;
+}
+
+.name-writer-detail .name-writer-detail-source {
+  margin-top: 0.2rem;
+  color: #8fa5b8;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.name-writer-skipped,
+.name-writer-copy-error {
+  color: #d8b4a0;
+  font-size: 0.85rem;
+  margin: 0 0 1rem;
+}
+
+.name-writer-copy {
+  display: block;
+  margin: 0 auto 1rem;
+  background: linear-gradient(145deg, #3182ce, #2b6cb0);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.name-writer-copy:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.name-writer-note {
+  margin-top: 2rem;
+  color: #8fa5b8;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .name-writer.rune-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .name-writer-rune {
+    font-size: 2.4rem;
+  }
+}
