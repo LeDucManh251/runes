@@ -6,3 +6,6 @@ import { afterEach } from 'vitest';
 afterEach(() => {
   cleanup();
 });
+
+// jsdom không có canvas: trả null để StarMist tự bỏ qua thay vì in lỗi "Not implemented".
+HTMLCanvasElement.prototype.getContext = (() => null) as unknown as typeof HTMLCanvasElement.prototype.getContext;
