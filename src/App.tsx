@@ -51,7 +51,7 @@ function App() {
     <>
       <div className="top-band">
         <div className="top-band-content">
-          <h1 className="app-title" style={{ letterSpacing: '0.12em', textShadow: '0 0 15px rgba(232,244,253,0.3)', fontSize: '2rem' }}>Rune Elder Futhark</h1>
+          <h1 className="app-title">Rune Elder Futhark</h1>
           <Nav
             activeTab={activeTab}
             onTabChange={handleTabChange}
@@ -62,7 +62,7 @@ function App() {
         </div>
       </div>
 
-      <div className="container" style={{ paddingTop: '1.5rem' }}>
+      <div className="container">
         <div key={activeTab} className="tab-content weave-in">
           {activeTab === 'dictionary' && <DictionaryTab />}
           {activeTab === 'randompull' && <RandomPullTab isMobile={isMobile} />}

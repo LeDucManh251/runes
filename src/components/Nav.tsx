@@ -8,10 +8,10 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { id: 'randompull', label: 'Tiên đoán' },
   { id: 'namewriter', label: 'Viết tên' },
-  { id: 'dictionary', label: 'Từ điển Rune' },
+  { id: 'dictionary', label: 'Từ điển' },
   { id: 'bindrunes', label: 'Bindrunes' },
-  { id: 'wyrd', label: 'Mạng lưới định mệnh (Wyrd)' },
-  { id: 'history', label: 'Lịch sử Rune' }
+  { id: 'wyrd', label: 'Wyrd' },
+  { id: 'history', label: 'Lịch sử' }
 ];
 
 interface NavProps {
@@ -22,44 +22,33 @@ interface NavProps {
   onToggleMobileMenu: () => void;
 }
 
-/** Thanh điều hướng tab — 1 danh sách nút dùng chung cho cả desktop và mobile menu. */
+/** Thanh điều hướng tab dạng chữ — 1 danh sách dùng chung cho desktop và menu thả xuống trên mobile. */
 function Nav({ activeTab, onTabChange, isMobile, isMobileMenuOpen, onToggleMobileMenu }: NavProps) {
-  const buttons = NAV_ITEMS.map((item) => (
-    <button
-      key={item.id}
-      className={`nav-button ${activeTab === item.id ? 'active' : ''}`}
-      onClick={() => onTabChange(item.id)}
-    >
-      {item.label}
-    </button>
-  ));
+  const tabs = NAV_ITEMS.map((item) => {
+    const isActive = activeTab === item.id;
+    return (
+      <button
+        key={item.id}
+        type="button"
+        className={`nav-tab ${isActive ? 'active' : ''}`}
+        aria-current={isActive ? 'page' : undefined}
+        onClick={() => onTabChange(item.id)}
+      >
+        {item.label}
+      </button>
+    );
+  });
 
   if (!isMobile) {
-    return <nav className="top-nav">{buttons}</nav>;
+    return <nav className="top-nav" aria-label="Điều hướng chính">{tabs}</nav>;
   }
 
   return (
     <>
-      <button
-        onClick={onToggleMobileMenu}
-        aria-expanded={isMobileMenuOpen}
-        style={{
-          background: 'linear-gradient(145deg, #1e2330, #0f121a)', border: '1px solid rgba(99, 179, 237, 0.3)',
-          borderRadius: '8px', color: '#e8f4fd', padding: '0.75rem 1rem', fontSize: '0.85rem', cursor: 'pointer', zIndex: 1001
-        }}
-      >
-        <span>☰</span> {isMobileMenuOpen ? 'Đóng Menu' : 'Mở Menu'}
+      <button type="button" className="btn btn-ghost menu-toggle" onClick={onToggleMobileMenu} aria-expanded={isMobileMenuOpen}>
+        {isMobileMenuOpen ? '✕ Đóng' : '☰ Menu'}
       </button>
-
-      {isMobileMenuOpen && (
-        <nav className="top-nav" style={{
-          position: 'fixed', top: '140px', left: 0, right: 0, background: 'rgba(8, 10, 15, 0.98)',
-          backdropFilter: 'blur(15px)', borderTop: '1px solid rgba(99, 179, 237, 0.2)', padding: '1rem',
-          display: 'flex', flexDirection: 'column', gap: '0.5rem', zIndex: 1000
-        }}>
-          {buttons}
-        </nav>
-      )}
+      {isMobileMenuOpen && <nav className="top-nav mobile-menu" aria-label="Điều hướng chính">{tabs}</nav>}
     </>
   );
 }
