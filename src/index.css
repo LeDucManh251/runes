@@ -110,6 +110,9 @@ h1, h2, h3, h4 {
   letter-spacing: 0.2em;
   color: var(--text);
   white-space: nowrap;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .top-nav {
@@ -155,11 +158,13 @@ h1, h2, h3, h4 {
   color: var(--accent);
 }
 
-.menu-toggle {
+/* Ghép với .btn nên cần độ ưu tiên cao hơn để ghi đè cỡ chữ/lề của .btn. */
+.btn.menu-toggle {
+  flex-shrink: 0;
   min-height: 40px;
-  padding: 0.4rem 0.9rem;
+  padding: 0.4rem 0.75rem;
   font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
 }
 
 .top-nav.mobile-menu {
@@ -545,8 +550,7 @@ h1, h2, h3, h4 {
 }
 
 .rune-tooltip .tooltip-content {
-  visibility: hidden;
-  opacity: 0;
+  display: none;
   position: absolute;
   z-index: 9999;
   top: 140%;
@@ -559,8 +563,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transform: translateX(-50%);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateX(-50%) translateY(2px);
 }
 
 .rune-tooltip .tooltip-content::after {
@@ -573,10 +576,21 @@ h1, h2, h3, h4 {
   border-bottom-color: var(--surface-2);
 }
 
+/* Ẩn hẳn (display: none) để tooltip không làm trang tràn ngang khi chưa hover. */
 .rune-tooltip:hover .tooltip-content {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%) translateY(2px);
+  display: block;
+  animation: tooltip-in 0.2s ease both;
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(2px);
+  }
 }
 
 .tooltip-title {
@@ -988,6 +1002,7 @@ h1, h2, h3, h4 {
 @media (max-width: 1024px) {
   .top-band-content {
     flex-wrap: nowrap;
+    gap: 1rem;
     padding: 0.6rem 1rem;
   }
 
