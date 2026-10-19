@@ -34,48 +34,25 @@ function FlipCard({ rune, isReversed, position, adviceText, isRevealed, onReveal
           onClick={() => !isRevealed && onReveal()}
           onKeyDown={handleKeyDown}
         >
-          <span className="rune-symbol" style={{ fontSize: '3.5rem', opacity: 0.12, marginBottom: '1rem' }}>?</span>
-          <h3 className="rune-name" style={{ fontSize: '1.4rem', opacity: 0.2, marginBottom: '0.5rem', fontFamily: 'Cormorant Garamond' }}>Ẩn tự</h3>
-          <p style={{ fontSize: '0.85rem', color: '#718096', fontStyle: 'italic', fontFamily: 'Inter' }}>Chạm để lật mở</p>
+          <span className="flip-card-mark" aria-hidden="true">?</span>
+          <h3 className="flip-card-veil">Ẩn tự</h3>
+          <p className="flip-card-hint">Chạm để lật mở</p>
         </div>
 
-        {/* MẶT SAU: HIỆU ỨNG XOAY LẬT 3D CHỐNG TRÀN CHỮ */}
+        {/* MẶT SAU: ký hiệu (xoay 180° nếu ngược), ý nghĩa, mô tả và lời khuyên cuộn được */}
         <div className="flip-card-back" onClick={(e) => e.stopPropagation()}>
-          <div style={{
-            marginBottom: '0.35rem', padding: '0.2rem 0.6rem', border: '1px solid rgba(136, 192, 208, 0.35)',
-            borderRadius: '999px', color: '#d7ecfb', fontSize: '0.78rem', fontFamily: 'Cormorant Garamond, serif',
-            letterSpacing: '0.08em', textTransform: 'uppercase'
-          }}>
-            {position}
-          </div>
-          <span
-            className="rune-symbol"
-            style={{
-              fontSize: '2.8rem', marginBottom: '0.2rem', textShadow: '0 0 15px rgba(136,192,208,0.6)',
-              display: 'inline-block', transform: isReversed ? 'rotate(180deg)' : 'none'
-            }}
-          >
+          <div className="flip-card-position">{position}</div>
+          <span className="rune-symbol" style={isReversed ? { transform: 'rotate(180deg)' } : undefined}>
             {rune.symbol}
           </span>
-          <h3 className="rune-name" style={{ fontSize: '1.2rem', marginBottom: '0.15rem', fontFamily: 'Cormorant Garamond, serif', letterSpacing: '0.04em' }}>
-            {rune.name}{isReversed ? ' (Ngược)' : ''}
-          </h3>
-          <p className="rune-meaning" style={{ fontSize: '0.9rem', marginBottom: '0.4rem', color: '#81a1c1' }}>
-            <strong>{isReversed && rune.reversedMeaning ? rune.reversedMeaning : rune.meaning}</strong>
-          </p>
+          <h3 className="rune-name">{rune.name}{isReversed ? ' (Ngược)' : ''}</h3>
+          <p className="rune-meaning">{isReversed && rune.reversedMeaning ? rune.reversedMeaning : rune.meaning}</p>
 
           <RuneAnnotations rune={rune} />
 
           <div className="flip-card-scroll-zone">
-            <p style={{ fontSize: '0.82rem', lineHeight: '1.45', color: '#cbd5e0', textAlign: 'justify', margin: '0 0 0.4rem 0', fontFamily: 'Inter, sans-serif' }}>
-              {rune.description}
-            </p>
-            <p style={{
-              fontSize: '0.85rem', lineHeight: '1.45', paddingTop: '0.4rem', borderTop: '1px solid rgba(232, 244, 253, 0.12)',
-              color: '#d7ecfb', fontStyle: 'italic', textAlign: 'justify', fontFamily: 'Inter, sans-serif', margin: 0
-            }}>
-              {adviceText}
-            </p>
+            <p className="flip-card-description">{rune.description}</p>
+            <p className="flip-card-advice">{adviceText}</p>
           </div>
         </div>
 

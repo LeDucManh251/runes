@@ -61,7 +61,7 @@ function StarMist() {
           p.x = Math.random() * width;
         }
         ctx.beginPath();
-        ctx.fillStyle = `rgba(136, 192, 208, ${p.a})`;
+        ctx.fillStyle = `rgba(216, 176, 106, ${p.a})`;
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
       });
