@@ -66,7 +66,7 @@ function NameWriterTab() {
 
       <input
         type="text"
-        className="name-writer-input"
+        className="input name-writer-input"
         value={name}
         maxLength={60}
         placeholder="Nhập tên của bạn…"
@@ -132,7 +132,7 @@ function NameWriterTab() {
             <p className="name-writer-skipped">Không có rune tương ứng, đã bỏ qua: {skipped.join(', ')}</p>
           )}
 
-          <button type="button" className="name-writer-copy" onClick={handleCopy} disabled={runeString === ''}>
+          <button type="button" className="btn name-writer-copy" onClick={handleCopy} disabled={runeString === ''}>
             {copyStatus === 'copied' ? 'Đã sao chép' : 'Sao chép'}
           </button>
           {copyStatus === 'failed' && (
