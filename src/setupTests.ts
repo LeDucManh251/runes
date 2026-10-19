@@ -9,3 +9,6 @@ afterEach(() => {
 
 // jsdom không có canvas: trả null để StarMist tự bỏ qua thay vì in lỗi "Not implemented".
 HTMLCanvasElement.prototype.getContext = (() => null) as unknown as typeof HTMLCanvasElement.prototype.getContext;
+
+// jsdom không cài window.scrollTo (App gọi khi đổi tab): thay bằng hàm rỗng cho log test sạch.
+window.scrollTo = (() => {}) as typeof window.scrollTo;
