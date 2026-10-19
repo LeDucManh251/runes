@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Nav from './components/Nav';
 import ImageLightbox from './components/ImageLightbox';
 import RandomPullTab from './components/RandomPullTab';
@@ -14,6 +14,19 @@ function App() {
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const topBandRef = useRef<HTMLDivElement>(null);
+
+  // Ghi chiều cao thanh trên cùng vào CSS để dải câu hỏi (sticky) dính ngay bên dưới,
+  // kể cả khi menu xuống dòng hoặc chuyển sang mobile.
+  useEffect(() => {
+    const band = topBandRef.current;
+    if (!band || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(() => {
+      document.documentElement.style.setProperty('--top-band-height', `${Math.round(band.getBoundingClientRect().height)}px`);
+    });
+    observer.observe(band);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -49,7 +62,7 @@ function App() {
 
   return (
     <>
-      <div className="top-band">
+      <div className="top-band" ref={topBandRef}>
         <div className="top-band-content">
           <h1 className="app-title">Rune Elder Futhark</h1>
           <Nav
