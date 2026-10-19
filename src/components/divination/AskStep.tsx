@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { SPREADS, SpreadId } from '../../data/spreads';
 
 const QUESTION_SUGGESTIONS = [
@@ -21,6 +21,14 @@ interface AskStepProps {
 function AskStep({ question, onQuestionChange, spreadId, onSpreadChange, onDraw }: AskStepProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+  // Ô câu hỏi tự cao theo nội dung: một dòng khi câu ngắn, xuống dòng khi câu dài.
+  useLayoutEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    if (el.scrollHeight > 0) el.style.height = `${el.scrollHeight}px`;
+  }, [question]);
+
   const pickSuggestion = (suggestion: string) => {
     onQuestionChange(suggestion);
     inputRef.current?.focus();
@@ -34,7 +42,7 @@ function AskStep({ question, onQuestionChange, spreadId, onSpreadChange, onDraw 
       <textarea
         ref={inputRef}
         className="ask-input"
-        rows={2}
+        rows={1}
         maxLength={200}
         value={question}
         placeholder="Lời thỉnh cầu hoặc điều bạn đang băn khoăn…"
