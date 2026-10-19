@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, expect, it, beforeEach } from 'vitest';
 import App from './App';
 
@@ -21,5 +21,12 @@ describe('App', () => {
     expect(within(nav).getByRole('button', { name: 'Tiên đoán' })).toHaveAttribute('aria-current', 'page');
     expect(within(nav).getByRole('button', { name: 'Từ điển' })).not.toHaveAttribute('aria-current');
     expect(within(nav).getByRole('button', { name: 'Viết tên' })).toBeInTheDocument();
+  });
+
+  it('mở ảnh bindrune phóng to bằng phím Enter', () => {
+    render(<App />);
+    fireEvent.click(within(screen.getByRole('navigation')).getByRole('button', { name: 'Bindrunes' }));
+    fireEvent.keyDown(screen.getByRole('button', { name: 'Bindrune ghép Thurisaz và Raidho' }), { key: 'Enter' });
+    expect(screen.getByRole('dialog', { name: 'Ảnh phóng to' })).toBeInTheDocument();
   });
 });
