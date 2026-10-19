@@ -9,17 +9,13 @@ function RuneAnnotations({ rune }: RuneAnnotationsProps) {
   if (!rune.annotations || rune.annotations.length === 0) return null;
 
   return (
-    <div style={{ marginBottom: '0.4rem', display: 'flex', gap: '0.4rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+    <div className="rune-annotations">
       {rune.annotations.map((ann, idx) => (
-        <span key={idx} className="rune-tooltip">
+        <span key={idx} className="tag rune-tooltip">
           {ann.word}
           <span className="tooltip-content">
-            <strong style={{ color: '#88c0d0', display: 'block', marginBottom: '0.2rem', fontSize: '0.95rem', fontFamily: 'Cormorant Garamond, serif' }}>
-              {ann.translated}
-            </strong>
-            <span style={{ fontSize: '0.85rem', lineHeight: '1.4', display: 'block', color: '#e5e9f0', fontFamily: 'Inter, sans-serif' }}>
-              {ann.historyNote}
-            </span>
+            <strong className="tooltip-title">{ann.translated}</strong>
+            <span className="tooltip-text">{ann.historyNote}</span>
           </span>
         </span>
       ))}
