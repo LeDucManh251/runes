@@ -126,9 +126,9 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
               key={count}
               onClick={() => selectRuneCount(count)}
               style={{
-                background: horizontalRuneCount === count ? 'linear-gradient(145deg, #2c3e50, #1a252f)' : 'linear-gradient(145deg, #1a1d24, #0e1117)',
-                color: '#e8f4fd', border: horizontalRuneCount === count ? '1px solid #63b3ed' : '1px solid rgba(99, 179, 237, 0.2)',
-                borderRadius: '8px', padding: '0.6rem 1rem', fontSize: '1rem', cursor: 'pointer', transition: 'all 0.2s ease',
+                background: horizontalRuneCount === count ? 'var(--accent-soft)' : 'var(--surface)',
+                color: 'var(--text)', border: horizontalRuneCount === count ? '1px solid var(--accent)' : '1px solid var(--line)',
+                borderRadius: 'var(--radius-sm)', padding: '0.6rem 1rem', fontSize: '1rem', cursor: 'pointer', transition: 'all 0.2s ease',
                 width: isMobile ? 'auto' : '100%', flex: 1, height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center'
               }}
             >
@@ -139,12 +139,12 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
 
         {/* KHỐI TRUNG TÂM: Ô nhập câu hỏi + Nút Tiên đoán */}
         <div style={{
-          flex: 2, background: 'linear-gradient(145deg, #181c24, #0a0d12)',
-          border: '1px solid rgba(99, 179, 237, 0.15)', borderRadius: '12px', padding: '0.75rem 1.5rem',
-          boxShadow: '0 6px 20px rgba(0, 0, 0, 0.5)', width: '100%', boxSizing: 'border-box',
+          flex: 2, background: 'var(--surface)',
+          border: '1px solid var(--line)', borderRadius: 'var(--radius)', padding: '0.75rem 1.5rem',
+          boxShadow: 'var(--shadow)', width: '100%', boxSizing: 'border-box',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem'
         }}>
-          <label htmlFor="rune-question" style={{ display: 'block', width: '100%', textAlign: 'center', color: '#e8f4fd', fontSize: '1.1rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+          <label htmlFor="rune-question" style={{ display: 'block', width: '100%', textAlign: 'center', color: 'var(--text)', fontSize: '1.1rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
             Xin lời khuyên từ các cổ tự Rune
           </label>
           <textarea
@@ -153,24 +153,21 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
             onChange={(e) => setRuneQuestion(e.target.value)}
             placeholder="Lời thỉnh cầu hoặc vấn đề thầm kín mà bạn muốn xin chỉ dẫn..."
             rows={2}
-            style={{
-              width: '100%', resize: 'none', minHeight: '52px', padding: '0.5rem 0.8rem',
-              background: 'linear-gradient(145deg, #12151c, #0a0c10)', border: '1px solid rgba(99, 179, 237, 0.2)',
-              borderRadius: '8px', color: '#e8f4fd', fontSize: '0.95rem', fontFamily: 'Inter, sans-serif', lineHeight: 1.4, outline: 'none', boxSizing: 'border-box'
-            }}
+            className="input"
+            style={{ resize: 'none', minHeight: '52px', fontSize: '0.95rem', lineHeight: 1.4 }}
           />
-          <p style={{ color: '#b8d4e6', fontSize: '0.92rem', fontStyle: 'italic', fontFamily: 'Inter, sans-serif', margin: '0.15rem 0' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', fontStyle: 'italic', fontFamily: 'Inter, sans-serif', margin: '0.15rem 0' }}>
             {getQuestionContext().prompt}
           </p>
 
           {horizontalPulledRunes.length === 0 ? (
-            <button className="pull-button" style={{ background: 'linear-gradient(145deg, #3182ce, #2b6cb0)', fontSize: '1.05rem', height: '40px', padding: '0 2.5rem', borderRadius: '8px', color: '#fff', cursor: 'pointer', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '0.2rem' }} onClick={pullHorizontalRunes}>
+            <button className="btn" style={{ marginTop: '0.2rem' }} onClick={pullHorizontalRunes}>
               Tiên đoán
             </button>
           ) : (
             <button
-              className="pull-button"
-              style={{ background: 'linear-gradient(145deg, #2d3748, #1a202c)', border: '1px solid rgba(99, 179, 237, 0.4)', fontSize: '1.05rem', height: '40px', padding: '0 2.5rem', borderRadius: '8px', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '0.2rem' }}
+              className="btn btn-ghost"
+              style={{ marginTop: '0.2rem' }}
               onClick={resetHorizontalRunes}
             >
               Bắt đầu lại
@@ -191,9 +188,9 @@ function RandomPullTab({ isMobile }: RandomPullTabProps) {
               key={count}
               onClick={() => selectRuneCount(count)}
               style={{
-                background: horizontalRuneCount === count ? 'linear-gradient(145deg, #2c3e50, #1a252f)' : 'linear-gradient(145deg, #1a1d24, #0e1117)',
-                color: '#e8f4fd', border: horizontalRuneCount === count ? '1px solid #63b3ed' : '1px solid rgba(99, 179, 237, 0.2)',
-                borderRadius: '8px', padding: '0.6rem 1rem', fontSize: '1rem', cursor: 'pointer', transition: 'all 0.2s ease',
+                background: horizontalRuneCount === count ? 'var(--accent-soft)' : 'var(--surface)',
+                color: 'var(--text)', border: horizontalRuneCount === count ? '1px solid var(--accent)' : '1px solid var(--line)',
+                borderRadius: 'var(--radius-sm)', padding: '0.6rem 1rem', fontSize: '1rem', cursor: 'pointer', transition: 'all 0.2s ease',
                 width: isMobile ? 'auto' : '100%', flex: 1, height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center'
               }}
             >
